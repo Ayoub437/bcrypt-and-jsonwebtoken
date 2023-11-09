@@ -7,6 +7,7 @@ const user = express.Router();
 
 const Key = "23456";
 
+
 //User wants to sign up
 user.post("/signup", async (req, res) => {
   //Fetching data from the database
@@ -14,7 +15,7 @@ user.post("/signup", async (req, res) => {
     email: req.body.email,
   });
   if (User) {
-    res.status(401).send("User already exists, try another email!");
+    res.status(401).send("User already exists");
   } else {
     bcrypt.genSalt(7, (err, salt) => {
       bcrypt.hash(req.body.password, salt, async (err, hash) => {

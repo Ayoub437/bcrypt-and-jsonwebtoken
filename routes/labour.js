@@ -10,7 +10,8 @@ labour.post("/signup", async (req, res) => {
     const FindLabour = await UserModel.findOne({
       email: req.body.email,
     });
-
+ 
+    
     if (FindLabour) {
       res.status(401).send("User already exists, try another email!");
     } else {
