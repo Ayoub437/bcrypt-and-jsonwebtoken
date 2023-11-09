@@ -13,7 +13,7 @@ labour.post("/signup", async (req, res) => {
  
     
     if (FindLabour) {
-      res.status(401).send("User already exists, try another email!");
+      res.status(401).send("try another email!");
     } else {
       bcrypt.genSalt(10, (err, salt) => {
         console.log(salt)
