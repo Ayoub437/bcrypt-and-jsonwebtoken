@@ -7,7 +7,6 @@ const user = express.Router();
 
 const Key = "23456";
 
-
 //User wants to sign up
 user.post("/signup", async (req, res) => {
   //Fetching data from the database
@@ -55,16 +54,13 @@ user.post("/login", async (req, res) => {
   }
 });
 
-
 //Fetching document from database
 user.get("/get", async (req, res) => {
-  const FindUser = await UserModel.find()
-  res.status(200).send(FindUser)
-})
+  const FindUser = await UserModel.find();
+  res.status(200).send(FindUser);
+});
 
 module.exports = user;
-
-
 
 //The server need the token to verify the user
 //The server will send the token to the frontend
